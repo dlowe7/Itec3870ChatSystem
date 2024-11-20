@@ -28,6 +28,11 @@ defmodule ChatAppWeb.Endpoint do
   gzip: false,
   only: ~w(assets css js)
 
+  plug Plug.Static,
+  at: "/images",
+  from: Path.expand("./assets/images"),
+  gzip: false
+
   # Enable code reloading if configured
   if code_reloading? do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
