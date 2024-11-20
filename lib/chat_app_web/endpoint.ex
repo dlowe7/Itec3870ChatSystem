@@ -23,10 +23,10 @@ defmodule ChatAppWeb.Endpoint do
 
   # Serve static files at "/" from "priv/static"
   plug Plug.Static,
-    at: "/",
-    from: :chat_app,
-    gzip: false,
-    only: ChatAppWeb.static_paths()
+  at: "/",
+  from: :chat_app,
+  gzip: false,
+  only: ~w(assets css js)
 
   # Enable code reloading if configured
   if code_reloading? do

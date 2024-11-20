@@ -14,4 +14,10 @@ defmodule ChatAppWeb.RoomChannel do
     broadcast!(socket, "user_joined", %{"name" => name})
     {:noreply, socket}
   end
+
+  def handle_in("typing", %{"name" => name}, socket) do
+  IO.inspect(name, label: "Typing Event from User")
+  broadcast!(socket, "typing", %{name: name})
+  {:noreply, socket}
+end
 end
